@@ -4,7 +4,7 @@ import time
 if __name__ == '__main__':
 	char_map = '''`1234567890-=~!@#$%^&*()_+qwertyuiop[]\\QWERTYUIOP{}|asdfghjkl;'ASDFGHJKL:"zxcvbnm,./ZXCVBNM<>?'''
 
-	# [INIT] initializing phase
+	# [INIT] Initialize
 	pg.init()
 	pg.font.init()
 	fnt = pg.font.Font('D2.ttf', 15)
@@ -40,7 +40,7 @@ if __name__ == '__main__':
 		curr['e']['k_up'] = []
 
 
-		# [GAT] Event gathering sector
+		# [GAT] Event gathering
 		while True:
 			e = pg.event.poll()
 			if e.type == pg.NOEVENT:
@@ -62,7 +62,7 @@ if __name__ == '__main__':
 				curr['e']['m_up'].append(e.button)
 
 
-		# [APP] Event applying sector
+		# [APP] Event apply
 
 		# [APP] Escape
 		if 41 in curr['e']['k_dn']:
@@ -78,7 +78,7 @@ if __name__ == '__main__':
 
 
 
-		# [DRA] Drawing sector
+		# [DRA] Draw
 
 		# [DRA] General
 		srf_main.fill((0,0,0))
