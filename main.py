@@ -1,17 +1,20 @@
 import pg
 import time
 
+
+
 if __name__ == '__main__':
-	char_map = '''`1234567890-=~!@#$%^&*()_+qwertyuiop[]\\QWERTYUIOP{}|asdfghjkl;'ASDFGHJKL:"zxcvbnm,./ZXCVBNM<>?'''
 
 	# [INIT] Initialize
+	
+	# [INIT] General
 	pg.init()
 	pg.font.init()
-	fnt = pg.font.Font('D2.ttf', 15)
+	fnt = pg.font.Font('os.fon', 12)
 	srf_main = pg.display.set_mode((0,0))
 	pg.mouse.set_visible(False)
 
-
+	# [INIT] Variables - general
 	flag_run = True
 	ts = time.time()
 	curr = dict()
@@ -28,6 +31,10 @@ if __name__ == '__main__':
 	curr['trail']['curr'] = (0,0)
 	curr['trail']['thre'] = 10
 	curr['trail']['sz'] = 5
+
+
+
+	# Main loop
 	while flag_run:
 		ts = time.time()
 	
@@ -82,7 +89,7 @@ if __name__ == '__main__':
 
 		# [DRA] General
 		srf_main.fill((0,0,0))
-		srf_txt = fnt.render('wow', True, (255,255,255))
+		srf_txt = fnt.render('wow', True, (255,0,255))
 		srf_main.blit(srf_txt, (20,20)),
 
 		# [DRA] Trail
