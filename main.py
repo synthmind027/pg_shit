@@ -37,7 +37,9 @@ if __name__ == '__main__':
 	curr['trail']['curr'] = (0,0)
 	curr['trail']['thre'] = 10
 	curr['trail']['sz'] = 5
-
+	curr['fnt'] = dict()
+	curr['fnt']['w'] = 6
+	curr['fnt']['h'] = 10
 
 
 
@@ -99,6 +101,9 @@ if __name__ == '__main__':
 		srf_txt = fnt.render(str(pg.display.get_desktop_sizes()), True, (255,0,255))		
 		srf_main.blit(srf_txt, (20,20)),
 
+		# [DRA] window
+
+
 		# [DRA] Trail
 		t_c = curr['trail']['curr']
 		t_p = curr['trail']['past']
@@ -124,7 +129,6 @@ if __name__ == '__main__':
 				q[1] = p[1] - t_s * norm[1] - t_s * perp[1]
 				pg.draw.aaline(srf_main, (255,255,255), p, q)
 		#pg.draw.aaline(srf_main, (255,255,255), curr['trail']['curr'], curr['trail']['past'])
-
 
 
 		# [DRA] Cursor
