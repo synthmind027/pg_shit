@@ -1,3 +1,4 @@
+import os
 import pg
 import time
 
@@ -11,7 +12,12 @@ if __name__ == '__main__':
 	pg.init()
 	pg.font.init()
 	fnt = pg.font.Font('os.fon', 12)
-	srf_main = pg.display.set_mode((0,0))
+	os.environ['SDL_VIDEO_WINDOW_POS'] = '0,0'
+	sz_monitor = pg.display.get_desktop_sizes()[0]
+	sz_window = [0,0]
+	sz_window[0] = sz_monitor[0]//2
+	sz_window[1] = sz_monitor[1]
+	srf_main = pg.display.set_mode(sz_window)
 	pg.mouse.set_visible(False)
 
 	# [INIT] Variables - general
@@ -31,6 +37,7 @@ if __name__ == '__main__':
 	curr['trail']['curr'] = (0,0)
 	curr['trail']['thre'] = 10
 	curr['trail']['sz'] = 5
+
 
 
 
@@ -75,7 +82,6 @@ if __name__ == '__main__':
 		if 41 in curr['e']['k_dn']:
 			flag_run = False
 
-
 		# [APP] Calculate mouse trail
 		# curr [trail] [vec / pnts / ts / adopt]
 		curr['trail']['past'] = curr['trail']['curr']
@@ -89,7 +95,8 @@ if __name__ == '__main__':
 
 		# [DRA] General
 		srf_main.fill((0,0,0))
-		srf_txt = fnt.render('wow', True, (255,0,255))
+		srf_txt = fnt.render('#asdf.qwer.xzcv', True, (255,0,255))
+		srf_txt = fnt.render(str(pg.display.get_desktop_sizes()), True, (255,0,255))		
 		srf_main.blit(srf_txt, (20,20)),
 
 		# [DRA] Trail
@@ -117,6 +124,8 @@ if __name__ == '__main__':
 				q[1] = p[1] - t_s * norm[1] - t_s * perp[1]
 				pg.draw.aaline(srf_main, (255,255,255), p, q)
 		#pg.draw.aaline(srf_main, (255,255,255), curr['trail']['curr'], curr['trail']['past'])
+
+
 
 		# [DRA] Cursor
 		pg.draw.rect(srf_main, (255,255,255), (curr['m_pos'],(5,5)))
